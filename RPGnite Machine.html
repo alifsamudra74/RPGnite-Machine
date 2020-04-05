@@ -11,25 +11,29 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="RPGnite Machine" startnode="1" creator="Twine" creator-version="2.3.5" ifid="4C6276E1-5FDD-4B41-975F-5EA52184BCAD" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="" position="403,201.5" size="100,100">(set: $hp to 10)
+<tw-storydata name="RPGnite Machine" startnode="1" creator="Twine" creator-version="2.3.5" ifid="4C6276E1-5FDD-4B41-975F-5EA52184BCAD" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-passage[tags~="start"]{
+ text-align:center; 
+}
 
-(set: $coin to 10)
+tw-sidebar {
+ visibility:hidden; 
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="start" position="735,96.66666666666666" size="100,100">(set: $hp to 10) (set: $coin to 10) (set: $day to 0)
 
-(set: $day to 0)
+Selamat Datang di RPGnite-Machine
 
-[[mulai permainan|main]]</tw-passagedata><tw-passagedata pid="2" name="main" tags="" position="407,328.5" size="100,100">kamu sudah berpetualang selama $day hari. Kamu punya uang $coin koin dan nilai hp $hp.
+[[Mulai permainan|main]]</tw-passagedata><tw-passagedata pid="2" name="main" tags="" position="735,296.66666666666663" size="100,100">kamu sudah berpetualang selama $day hari. Kamu punya uang $coin koin dan nilai hp $hp.
 
-[[istirahat|rest]]
+[[lanjutkan petualangan|start adventure]]
 
-[[lanjutkan petualangan|start adventure]]</tw-passagedata><tw-passagedata pid="3" name="rest" tags="" position="224,317.5" size="100,100">(set: $hp to 10) (set: $day to $day + 1)
+[[istirahat|rest]]</tw-passagedata><tw-passagedata pid="3" name="rest" tags="" position="535,296.66666666666663" size="100,100">(set: $hp to 10) (set: $day to $day + 1)
 Kamu merasa segar kembali. Hp mu kembali menjadi $hp.
 
-[[Bersiap|main]]</tw-passagedata><tw-passagedata pid="4" name="adventure" tags="" position="435.6666666666667,477.1666666666667" size="100,100">(set: $day to $day + 1)
+[[Bersiap|main]]</tw-passagedata><tw-passagedata pid="4" name="adventure" tags="" position="735,496.66666666666663" size="100,100">(set: $day to $day + 1)
 Sebuah monster muncul!! (set: $monster_hp to 3)
 
 [[lawan|fight]]
 
-[[kabur|main]]</tw-passagedata><tw-passagedata pid="5" name="fight" tags="" position="294.3333333333333,643.8333333333334" size="100,100">(if: (either: 0, 1) is 0)[  
+[[kabur|main]]</tw-passagedata><tw-passagedata pid="5" name="fight" tags="" position="635,696.6666666666667" size="100,100">(if: (either: 0, 1) is 0)[  
   Monster itu mencakarmu! 
   (set: $hp to $hp - (either: 1,2,3))  
   (if: $hp &lt; 1)[ Kamu [[mati|dead]]! ]  
@@ -44,16 +48,16 @@ Sebuah monster muncul!! (set: $monster_hp to 3)
     Monster itu masih hidup! hp nya tersisa $monster_hp.
     [[Kembali bertarung|fight]] 
     [[Kabur|main]] ]
-]</tw-passagedata><tw-passagedata pid="6" name="dead" tags="" position="584.6666666666667,616.5000000000001" size="100,100">Kamu mati!
+]</tw-passagedata><tw-passagedata pid="6" name="dead" tags="" position="935,596.6666666666667" size="100,100">Kamu mati!
 
-Ingin [[mengulangi permainan?|init]]</tw-passagedata><tw-passagedata pid="7" name="Monster itu mati" tags="" position="583.3333333333334,737.5" size="100,100">(set: $streak to $streak + 1) (set: $drop to (random: 1, 10) * $streak) (set: $spoil to $spoil + $drop)
+Ingin [[mengulangi permainan?|init]]</tw-passagedata><tw-passagedata pid="7" name="Monster itu mati" tags="" position="935,796.6666666666667" size="100,100">(set: $streak to $streak + 1) (set: $drop to (random: 1, 10) * $streak) (set: $spoil to $spoil + $drop)
 Kamu menemukan $drop koin dari monster tadi. Sekarang kamu memegang $coin koin dan $hp hp. Kamu sudah membunuh $streak monster (if: not($streak is 1))[s] dalam petualangan ini
 
 [[Kembali berpetualang|adventure]]
 
-[[Sudahi petualangan|collect spoil]]</tw-passagedata><tw-passagedata pid="8" name="start adventure" tags="" position="578.3333333333334,338.83333333333337" size="100,100">(set: $spoil to 0) (set: $streak to 0)
+[[Sudahi petualangan|collect spoil]]</tw-passagedata><tw-passagedata pid="8" name="start adventure" tags="" position="935,296.66666666666663" size="100,100">(set: $spoil to 0) (set: $streak to 0)
 
-(display: &quot;adventure&quot;)</tw-passagedata><tw-passagedata pid="9" name="collect spoil" tags="" position="86.33333333333326,758.5" size="100,100">(set: $coin to $coin + $spoil) 
+(display: &quot;adventure&quot;)</tw-passagedata><tw-passagedata pid="9" name="collect spoil" tags="" position="435,796.6666666666667" size="100,100">(set: $coin to $coin + $spoil) 
 Kamu memasukkan koin yang kamu dapat dari petualanganmu ke dompet.
 
 [[Bersiap-&gt;main]]</tw-passagedata></tw-storydata>
