@@ -38,7 +38,7 @@ Kamu merasa segar kembali. Hp mu kembali menjadi $max_hp.
   (if: $hp &lt; 1)[ Kamu [[mati|dead]]! ]  
   (else:)[ Hp mu tersisa $hp. 
     [[Kembali bertarung|fight]] 
-    [[Kabur|main]] ]  
+    [[Kembali ke persembunyian|main]] ]  
 ]
 (else:)[ Kamu memukul monster!  
   (set:$monster_hp = $monster_hp - $damage)  
@@ -46,7 +46,7 @@ Kamu merasa segar kembali. Hp mu kembali menjadi $max_hp.
   (else:)[    
     Monster itu masih hidup! hp nya tersisa $monster_hp.
     [[Kembali bertarung|fight]] 
-    [[Kabur|main]] ]
+    [[Kembali ke persembunyian|main]] ]
 ]</tw-passagedata><tw-passagedata pid="6" name="dead" tags="" position="2500,800" size="100,100">Kamu mati!
 
 Ingin [[mengulangi permainan?|init]]</tw-passagedata><tw-passagedata pid="7" name="Monster itu mati" tags="" position="2500,1100" size="100,100">(set: $streak to $streak + 1) (set: $drop to (random: 1, 10) * $streak) (set: $spoil to $spoil + $drop)
@@ -61,7 +61,7 @@ Kamu menemukan $drop koin dari monster tadi. Sekarang kamu memegang $coin koin d
 (else:)[
 	(display:&quot;shop&quot;)
 ]</tw-passagedata><tw-passagedata pid="9" name="collect spoil" tags="" position="2000,1100" size="100,100">(set: $coin to $coin + $spoil) 
-Kamu memasukkan koin yang kamu dapat dari petualanganmu ke dompet.
+Kamu memasukkan koin yang kamu dapat dari petualanganmu ke penyimpanan.
 
 [[Bersiap-&gt;main]]</tw-passagedata><tw-passagedata pid="10" name="shop" tags="" position="1500,800" size="100,100">Kamu melihat seorang pedagang. Setelah kamu dekati, dia menawarkan barang-barang dagangannya.
 
@@ -72,7 +72,7 @@ Sebuah [[baju zirah|armor]], dengan harga 5 koin
 [[Lanjutkan petualangan|start adventure]]
 [[Kembali ke persembunyian|main]]</tw-passagedata><tw-passagedata pid="11" name="power" tags="" position="1350,950" size="100,100">Daya serang mu bertambah 1
 (set: $damage to ($damage + 1))
-[[Kembali|shop]]</tw-passagedata><tw-passagedata pid="12" name="potion" tags="" position="1500,950" size="100,100">(set: $fill_hp to ($max_hp / 2))
+[[Kembali|shop]]</tw-passagedata><tw-passagedata pid="12" name="potion" tags="" position="1500,950" size="100,100">(set: $fill_hp to 3) (put: $fill_hp into $max_hp)
 hp mu terisi $fill_hp.
 [[Kembali|shop]]</tw-passagedata><tw-passagedata pid="13" name="armor" tags="" position="1650,950" size="100,100">Maksimum hp mu bertambah 2
 (set: $max_hp to ($max_hp + 2))
