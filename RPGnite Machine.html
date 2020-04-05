@@ -17,7 +17,7 @@
 
 tw-sidebar {
  visibility:hidden; 
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="start" position="1900,400" size="100,100">(set: $max_hp to 10) (set: $hp to 10) (set: $coin to 10) (set: $day to 0) (set: $damage to 1)
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="start" position="1901.6666666666667,400" size="100,100">(set: $max_hp to 10) (set: $hp to 10) (set: $coin to 10) (set: $day to 0) (set: $damage to 1)
 
 Selamat Datang di RPGnite-Machine
 
@@ -25,14 +25,12 @@ Selamat Datang di RPGnite-Machine
 
 [[lanjutkan petualangan|start adventure]]
 
-[[istirahat|rest]]</tw-passagedata><tw-passagedata pid="3" name="rest" tags="" position="1700,600" size="100,100">(set: $hp to 10) (set: $day to $day + 1)
+[[istirahat|rest]]</tw-passagedata><tw-passagedata pid="3" name="rest" tags="" position="1700,601.6666666666667" size="100,100">(set: $hp to 10) (set: $day to $day + 1)
 Kamu merasa segar kembali. Hp mu kembali menjadi $max_hp.
 
-[[Bersiap|main]]</tw-passagedata><tw-passagedata pid="4" name="enemy" tags="" position="2200,800" size="100,100">Sebuah monster muncul!! (set: $monster_hp to 3)
+[[Bersiap|main]]</tw-passagedata><tw-passagedata pid="4" name="enemy" tags="" position="2201.6666666666665,800" size="100,100">Sebuah monster muncul!! (set: $monster_hp to 3)
 
 [[Lawan|fight]]
-
-[[Lewati|start adventure]]
 
 [[Kembali ke persembunyian|main]]</tw-passagedata><tw-passagedata pid="5" name="fight" tags="" position="2200,1000" size="100,100">(if: (either: 0, 1) is 0)[  
   Monster itu mencakarmu! 
@@ -67,12 +65,12 @@ Kamu memasukkan koin yang kamu dapat dari petualanganmu ke dompet.
 
 [[Bersiap-&gt;main]]</tw-passagedata><tw-passagedata pid="10" name="shop" tags="" position="1500,800" size="100,100">Kamu melihat seorang pedagang. Setelah kamu dekati, dia menawarkan barang-barang dagangannya.
 
-Sebuah [[pedang|sword]], dengan harga 3 koin
+Sebuah [[pedang|power]], dengan harga 3 koin
 Sebuah [[ramuan|potion]], dengan harga 4 koin
 Sebuah [[baju zirah|armor]], dengan harga 5 koin
 
 [[Lanjutkan petualangan|start adventure]]
-[[Kembali ke persembunyian|main]]</tw-passagedata><tw-passagedata pid="11" name="sword" tags="" position="1350,950" size="100,100">Daya serang mu bertambah 1
+[[Kembali ke persembunyian|main]]</tw-passagedata><tw-passagedata pid="11" name="power" tags="" position="1350,950" size="100,100">Daya serang mu bertambah 1
 (set: $damage to ($damage + 1))
 [[Kembali|shop]]</tw-passagedata><tw-passagedata pid="12" name="potion" tags="" position="1500,950" size="100,100">(set: $fill_hp to ($max_hp / 2))
 hp mu terisi $fill_hp.
