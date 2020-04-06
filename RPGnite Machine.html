@@ -17,7 +17,7 @@
 
 tw-sidebar {
  visibility:hidden; 
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="start" position="1901.6666666666667,400" size="100,100">(set: $max_hp to 10) (set: $hp to 10) (set: $coin to 10) (set: $day to 0) (set: $damage to 1)
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="init" tags="start" position="1901,400" size="100,100">(set: $max_hp to 10) (set: $hp to 10) (set: $coin to 10) (set: $day to 0) (set: $damage to 1)
 
 Selamat Datang di RPGnite-Machine
 
@@ -25,10 +25,10 @@ Selamat Datang di RPGnite-Machine
 
 [[lanjutkan petualangan|start adventure]]
 
-[[istirahat|rest]]</tw-passagedata><tw-passagedata pid="3" name="rest" tags="" position="1700,601.6666666666667" size="100,100">(set: $hp to 10) (set: $day to $day + 1)
+[[istirahat|rest]]</tw-passagedata><tw-passagedata pid="3" name="rest" tags="" position="1700,601" size="100,100">(set: $hp to 10) (set: $day to $day + 1)
 Kamu merasa segar kembali. Hp mu kembali menjadi $max_hp.
 
-[[Bersiap|main]]</tw-passagedata><tw-passagedata pid="4" name="enemy" tags="" position="2201.6666666666665,800" size="100,100">Sebuah monster muncul!! (set: $monster_hp to 3)
+[[Bersiap|main]]</tw-passagedata><tw-passagedata pid="4" name="enemy" tags="" position="2201,800" size="100,100">Sebuah monster muncul!! (set: $monster_hp to 3)
 
 [[Lawan|fight]]
 
@@ -63,19 +63,22 @@ Kamu menemukan $drop koin dari monster tadi. Sekarang kamu memegang $coin koin d
 ]</tw-passagedata><tw-passagedata pid="9" name="collect spoil" tags="" position="2000,1100" size="100,100">(set: $coin to $coin + $spoil) 
 Kamu memasukkan koin yang kamu dapat dari petualanganmu ke penyimpanan.
 
-[[Bersiap-&gt;main]]</tw-passagedata><tw-passagedata pid="10" name="shop" tags="" position="1500,800" size="100,100">Kamu melihat seorang pedagang. Setelah kamu dekati, dia menawarkan barang-barang dagangannya.
+[[Bersiap-&gt;main]]</tw-passagedata><tw-passagedata pid="10" name="shop" tags="" position="1500,796.6666666666667" size="100,100">Kamu melihat seorang pedagang. Setelah kamu dekati, dia menawarkan barang-barang dagangannya.
 
-Sebuah [[pedang|power]], dengan harga 3 koin
-Sebuah [[ramuan|potion]], dengan harga 4 koin
-Sebuah [[baju zirah|armor]], dengan harga 5 koin
+(if: $coin &gt; 3)[Sebuah [[pedang|power]], dengan harga 3 koin.]
+(if: $coin &gt; 4)[Sebuah [[ramuan|potion]], dengan harga 4 koin.]
+(if: $coin &gt; 5)[Sebuah [[baju zirah|armor]], dengan harga 5 koin.]
+(if: $coin &lt; 3)[Kamu tidak bisa membeli apa-apa]
+
+Kamu mempunyai $coin koin.
 
 [[Lanjutkan petualangan|start adventure]]
-[[Kembali ke persembunyian|main]]</tw-passagedata><tw-passagedata pid="11" name="power" tags="" position="1350,950" size="100,100">Daya serang mu bertambah 1
-(set: $damage to ($damage + 1))
-[[Kembali|shop]]</tw-passagedata><tw-passagedata pid="12" name="potion" tags="" position="1500,950" size="100,100">(set: $fill_hp to 3) (put: $fill_hp into $max_hp)
-hp mu terisi $fill_hp.
-[[Kembali|shop]]</tw-passagedata><tw-passagedata pid="13" name="armor" tags="" position="1650,950" size="100,100">Maksimum hp mu bertambah 2
-(set: $max_hp to ($max_hp + 2))
+[[Kembali ke persembunyian|main]]</tw-passagedata><tw-passagedata pid="11" name="power" tags="" position="1350,950" size="100,100">Daya serang mu bertambah 1, dan uang mu berkurang 5.
+(set: $damage to ($damage + 1)) (set: $coin to ($coin - 3))
+[[Kembali|shop]]</tw-passagedata><tw-passagedata pid="12" name="potion" tags="" position="1500,950" size="100,100">hp mu terisi $fill_hp, dan uang mu berkurang 5.
+(set: $fill_hp to 3) (put: $fill_hp into $max_hp) (set: $coin to ($coin - 4))
+[[Kembali|shop]]</tw-passagedata><tw-passagedata pid="13" name="armor" tags="" position="1645,950" size="100,100">Maksimum hp mu bertambah 2, dan uang mu berkurang 5.
+(set: $max_hp to ($max_hp + 2)) (set: $coin to ($coin - 5))
 [[Kembali|shop]]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
